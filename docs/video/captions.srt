@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:08,000
+Hi, I’m Andreas. In this video, I’ll show how I built this Job Application Tracker and how I used an AI coding assistant.
+
+2
+00:00:08,000 --> 00:00:18,000
+This is a full-stack project with React and TypeScript on the frontend, and Express with JWT authentication on the backend.
+
+3
+00:00:18,000 --> 00:00:31,000
+First, here is the product demo: users can register, log in, create job applications, and track analytics in real time.
+
+4
+00:00:31,000 --> 00:00:45,000
+The dashboard includes total applications, interviews, offers, offer rate, monthly trend, and status distribution.
+
+5
+00:00:45,000 --> 00:00:58,000
+Architecture-wise, the client uses React Query, React Hook Form, Zod, and Recharts. The server uses Express, bcrypt, Zod, and JWT.
+
+6
+00:00:58,000 --> 00:01:13,000
+I used AI in four phases: scaffolding project structure, implementing features, debugging issues, and improving documentation.
+
+7
+00:01:13,000 --> 00:01:25,000
+For scaffolding, AI helped generate a clean baseline quickly so I could focus on business logic.
+
+8
+00:01:25,000 --> 00:01:40,000
+For feature delivery, AI helped draft forms, API integration, and analytics components, which I then reviewed and adapted.
+
+9
+00:01:40,000 --> 00:01:57,000
+For debugging, AI helped trace registration issues. I improved error handling so users now see clear messages from backend or network failures.
+
+10
+00:01:57,000 --> 00:02:13,000
+For docs, AI helped produce a recruiter-friendly README and this structured video pack for faster technical review.
+
+11
+00:02:13,000 --> 00:02:27,000
+The key is ownership: AI suggests options, but I validate builds, verify endpoints, and make final engineering decisions.
+
+12
+00:02:27,000 --> 00:02:40,000
+My workflow is simple: prompt, inspect, adapt, verify, and ship.
+
+13
+00:02:40,000 --> 00:02:52,000
+Thanks for watching. If you want, I can also show how I would productionize this with a real database, CI tests, and deployment.
