@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { register as registerApi } from '../lib/api'
 import { useAuth } from '../auth/AuthContext'
+import { getApiErrorMessage } from '../lib/errors'
 
 const schema = z
   .object({
@@ -37,6 +38,9 @@ export function RegisterPage() {
   })
 
   const onSubmit = (values: FormData) => mutation.mutate(values)
+  const errorMessage = mutation.isError
+    ? getApiErrorMessage(mutation.error, 'Unable to create account.')
+    : null
 
   return (
     <main className="page-center">
@@ -70,7 +74,7 @@ export function RegisterPage() {
             <span className="error">{formState.errors.confirmPassword.message}</span>
           ) : null}
 
-          {mutation.isError ? <span className="error">Unable to create account.</span> : null}
+          {errorMessage ? <span className="error">{errorMessage}</span> : null}
 
           <button type="submit" disabled={mutation.isPending}>
             {mutation.isPending ? 'Creating...' : 'Create account'}

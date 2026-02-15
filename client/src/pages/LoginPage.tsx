@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { login } from '../lib/api'
 import { useAuth } from '../auth/AuthContext'
+import { getApiErrorMessage } from '../lib/errors'
 
 const schema = z.object({
   email: z.email(),
@@ -29,6 +30,9 @@ export function LoginPage() {
   })
 
   const onSubmit = (values: FormData) => mutation.mutate(values)
+  const errorMessage = mutation.isError
+    ? getApiErrorMessage(mutation.error, 'Unable to sign in. Check your credentials.')
+    : null
 
   return (
     <main className="page-center">
@@ -48,7 +52,7 @@ export function LoginPage() {
           </label>
           {formState.errors.password ? <span className="error">{formState.errors.password.message}</span> : null}
 
-          {mutation.isError ? <span className="error">Unable to sign in. Check your credentials.</span> : null}
+          {errorMessage ? <span className="error">{errorMessage}</span> : null}
 
           <button type="submit" disabled={mutation.isPending}>
             {mutation.isPending ? 'Signing in...' : 'Sign in'}
